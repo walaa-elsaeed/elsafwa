@@ -1,0 +1,60 @@
+
+@charset "utf-8";
+/*------------------------------------------------------------------
+[Twitter widget Stylesheet]
+
+Project:	Quantum - Responsive HTML5 Template
+Version:	1.0
+Last change:	08/23/17
+Assigned to:	Micro Themes
+Primary use:	Business/Corporate
+-------------------------------------------------------------------*/
+
+/* Twitter widget */
+#pm-twitter-news ul li::before {
+    content: "\f099" !important;
+    font-size: 20px;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    color: #DBC164;
+}
+
+#pm-twitter-news ul li {
+    padding: 0px 0px 11px 48px;
+    color:white;
+    word-wrap:break-word;
+    line-height: 22px;
+    position:relative;
+    font-weight:300;
+    overflow:hidden;
+}
+
+#pm-twitter-news ul li a {
+    color: #DBC164;
+    line-height:20px !important;
+    font-weight:300;
+}
+
+#pm-twitter-news ul li a img {
+    float: left;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    width: 20%;
+}
+
+#pm-twitter-news ul {
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.tweet_container {
+    padding:2px 5px;
+}
+
+.interact > a {
+    margin-right:7px;
+}

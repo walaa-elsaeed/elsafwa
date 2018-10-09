@@ -1,0 +1,44 @@
+#
+# robots.txt
+#
+# This file is to prevent the crawling and indexing of certain parts
+# of your site by web crawlers and spiders run by sites like Yahoo!
+# and Google. By telling these "robots" where not to go on your site,
+# you save bandwidth and server resources.
+#
+# This file will be ignored unless it is at the root of your host:
+# Used:    http://example.com/robots.txt
+# Ignored: http://example.com/site/robots.txt
+#
+# For more information about the robots.txt standard, see:
+# http://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+
+Disallow: /staging/
+
+Disallow: /login
+Disallow: /admin
+Disallow: /cybers
+Disallow: /cybers-pending
+Disallow: /cybers-approved
+Disallow: /cybers-decline
+Disallow: /devices
+Disallow: /add-device
+Disallow: /options
+Disallow: /add-option
+Disallow: /citys
+Disallow: /government
+Disallow: /zones
+Disallow: /add-zone
+Disallow: /news-list
+Disallow: /add_new
+Disallow: /alltrades
+Disallow: /pendingtrades
+Disallow: /approvetrades
+Disallow: /declinetrades
+Disallow: /operations
+Disallow: /add-operation
+Disallow: /change_password
+Disallow: /cyberSearch
+Disallow: /citytradesfront
