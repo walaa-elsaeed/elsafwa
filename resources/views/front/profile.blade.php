@@ -49,37 +49,42 @@
 
 
 
-            @if(count($user->interests)>0)
+            @if (Auth::check())
+                @if(Auth::user()->id ==$user->id )
+                    @if(count($user->interests)>0)
 
-                <div class="row departs">
-                    <h2>
-                        قائمه المفضله الخاصه بك
-                    </h2>
-                    @foreach($user->interests as $interest)
+                        <div class="row departs">
+                            <h2>
+                                قائمه المفضله الخاصه بك
+                            </h2>
+                            @foreach($user->interests as $interest)
 
-                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="col-md-3 col-sm-6 col-xs-12">
 
-                            <div class="depart_holder">
-                                <div class="v-align">
-                                    <img src="{{url('uploads/'.$interest->depart->img_url)}}" class="img-responsive">
-                                    <p class="text-center">
-                                        {{$interest->depart->name}}
-                                    </p>
+                                    <div class="depart_holder">
+                                        <div class="v-align">
+                                            <img src="{{url('uploads/'.$interest->depart->img_url)}}" class="img-responsive">
+                                            <p class="text-center">
+                                                {{$interest->depart->name}}
+                                            </p>
+                                        </div>
+                                        <div class="overlay text-center">
+                                            <a href="{{url('departs/'.$interest->depart->id)}}" class="v-align">
+                                                المزيد
+                                            </a>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <div class="overlay text-center">
-                                    <a href="{{url('departs/'.$interest->depart->id)}}" class="v-align">
-                                        المزيد
-                                    </a>
-                                </div>
-                            </div>
+
+                            @endforeach
 
                         </div>
 
-                    @endforeach
-
-                </div>
-
+                    @endif
+                @endif
             @endif
+
 
         </div>
     </div>
