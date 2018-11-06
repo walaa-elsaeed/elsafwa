@@ -58,7 +58,7 @@
                         او
                     </p>
 
-                    <form class="contacts_form no-border" method="post" action="{{url('login')}}" enctype="multipart/form-data">
+                    <form class="contacts_form no-border" method="post" action="{{url('user_login')}}" enctype="multipart/form-data">
 
                         {{csrf_field()}}
 

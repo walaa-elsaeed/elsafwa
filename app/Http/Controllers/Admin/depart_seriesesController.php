@@ -118,12 +118,45 @@ class depart_seriesesController extends Controller
         $series = new depart_serieses;
         $this->validate($request,[
             'depart'=>'required',
-            'url'=>'required|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
+            'type'=>'required',
         ]);
 
 
         $series->departs_id = $request->depart;
-        $series->url = $request->url;
+        $series->type = $request->type;
+        if ($request->type == 0)
+        {
+            $this->validate($request,[
+                'url'=>'required|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
+            ]);
+            $series->url = $request->url;
+        }
+        elseif ($request->type == 1)
+        {
+            $this->validate($request,[
+                'video' => 'required|mimes:mp4,mov,ogg'
+            ]);
+
+            if($request->hasFile('video')){
+                $file=$request->file('video');
+                $url=time().$file->getClientOriginalName();
+                $desti=public_path('/uploads/videos');
+                /*$desti=base_path('/uploads');*/
+                if ($file->move($desti ,$url))
+                {
+                    $series->upload_url=$url;
+                }
+                else
+                {
+                    echo 'not move';
+                }
+
+            }
+            else {
+
+                echo 'Not Uploaded';
+            }
+        }
 
         $series->save();
 
@@ -180,10 +213,50 @@ class depart_seriesesController extends Controller
         $series = depart_serieses::find($id);
         $this->validate($request,[
             'depart'=>'required',
-            'url'=>'required|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
+            'type'=>'required',
         ]);
         $series->departs_id = $request->depart;
-        $series->url = $request->url;
+        $series->type = $request->type;
+
+
+        if ($request->type == 0)
+        {
+            $this->validate($request,[
+                'url'=>'required|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
+            ]);
+            $series->url = $request->url;
+            $series->upload_url = null;
+        }
+        elseif ($request->type == 1)
+        {
+            $this->validate($request,[
+                'video' => 'required|mimes:mp4,mov,ogg'
+            ]);
+
+            if($request->hasFile('video')){
+                $file=$request->file('video');
+                $url=time().$file->getClientOriginalName();
+                $desti=public_path('/uploads/videos');
+                /*$desti=base_path('/uploads');*/
+                if ($file->move($desti ,$url))
+                {
+                    $series->upload_url=$url;
+                    $series->url = null;
+                }
+                else
+                {
+                    echo 'not move';
+                }
+
+            }
+            else {
+
+                echo 'Not Uploaded';
+            }
+        }
+
+        $series->save();
+
 
         $series->save();
 

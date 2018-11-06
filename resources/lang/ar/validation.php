@@ -86,6 +86,7 @@ return [
     'uploaded'             => 'فشل في تحميل الـ :attribute',
     'url'                  => 'صيغة الرابط :attribute غير صحيحة',
 
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
@@ -160,6 +161,7 @@ return [
         'twitter'                  => 'تويتر',
         'youtube'                  => 'اليو تيوب',
         'retype_password'                  => 'اعد كتابه كلمه السر',
+        'type'                  => 'النوع',
     ],
 
 ];

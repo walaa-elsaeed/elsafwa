@@ -7,10 +7,18 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="series-container">
-                        <iframe src="{{$series->url}}"
-                                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                        @if($series->type == 0)
+                            <iframe src="{{$series->url}}"
+                                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
 
-                        </iframe>
+                            </iframe>
+                        @elseif($series->type == 1)
+                            <video controls class="section-background-video" style="min-width: 100%;
+   width: 100%">
+                                <source src="{{url('uploads/videos/'.$series->upload_url)}}">
+                            </video>
+                        @endif
+
                     </div>
                 </div>
             </div>

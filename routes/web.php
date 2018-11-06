@@ -95,7 +95,7 @@ Route::resource('/blogs', 'front\blogController');
 Route::resource('/blog_articles', 'front\blog_articlesController');
 Route::resource('/who_we_are', 'front\infosController');
 Route::resource('/users', 'front\userController');
-Route::post('login','front\userController@login');
+Route::post('user_login','front\userController@login');
 Route::get('logout','front\userController@logout');
 
 Route::get('login/facebook', 'front\userController@redirectToProvider');

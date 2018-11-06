@@ -31,12 +31,36 @@
                             </div>
                         </div>
 
-
-
                         <div class="col-xs-12 cus-12">
+                            <div class="form-group form-ar">
+                                <label for="name">اختر النوع *</label>
+                                <select class="form-control" name="type" onchange="toggle_method($(this));">
+                                    <option selected disabled>اختر</option>
+
+                                   <option value="0">حلقه من اليوتيوب</option>
+                                    <option value="1">رفع فيديو من الجهاز</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="col-xs-12 cus-12 url_wrapper">
                             <div class="form-group form-ar">
                                 <label for="name">اضف لينك الحلقه *</label>
                                 <input type="text" class="form-control" id="name" placeholder="اللينك" name="url" style="width: 100%" value="{{ old('url') }}">
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 cus-12 upload_wrapper">
+                            <div class="form-group reli">
+                                <label for="image">ارفع الفديو *</label>
+                                <input type="file" id="gallery-photo-add" class="upload-hidden" name="video"  accept="video/mp4,video/x-m4v,video/*"  style="width: 100%!important;height: 100%!important;">
+                                <button class="btn btn-default upload">
+                                    ارفع الفديو
+                                </button>
                             </div>
                         </div>
 
@@ -58,5 +82,7 @@
         </div>
     </div>
 @endsection
+
+
 
 

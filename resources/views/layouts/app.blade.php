@@ -100,6 +100,28 @@
             imagesPreview(this, 'div.gallery');
         });
     });
+
+    //toggle contract type and payment method options
+    function toggle_method(z) {
+        if (z.val() == 0)
+        {
+            $('.url_wrapper > div').addClass('block');
+            $('.upload_wrapper > div').removeClass('block');
+            $('.section-background-video').hide();
+
+        }
+        else if (z.val() == 1)
+        {
+            $('.url_wrapper > div').removeClass('block');
+            $('.upload_wrapper > div').addClass('block');
+            $('.section-background-video').show();
+        }
+
+    }
+
+    function hidevideo() {
+        $('.section-background-video').hide();
+    }
 </script>
 
 

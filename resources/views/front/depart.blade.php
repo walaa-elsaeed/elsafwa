@@ -57,16 +57,30 @@
                     <div class="slider-holder">
                         <div class="series_slider">
                             @foreach($depart->depart_series as $series)
-                                <div>
-                                    <iframe src="{{$series->url}}"
-                                            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                                @if($series->type == 0)
+                                    <div>
+                                        <iframe src="{{$series->url}}"
+                                                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
 
-                                    </iframe>
+                                        </iframe>
 
-                                    <a href="{{url('series/'.$series->id)}}">
-                                        التفاصيل
-                                    </a>
-                                </div>
+                                        <a href="{{url('series/'.$series->id)}}">
+                                            التفاصيل
+                                        </a>
+                                    </div>
+                                @elseif($series->type == 1)
+                                    <div>
+                                        <video controls class="section-background-video" style="min-width: 100%;
+   width: 100%">
+                                            <source src="{{url('uploads/videos/'.$series->upload_url)}}">
+                                        </video>
+
+                                        <a href="{{url('series/'.$series->id)}}">
+                                            التفاصيل
+                                        </a>
+                                    </div>
+                                @endif
+
                             @endforeach
                         </div>
                     </div>

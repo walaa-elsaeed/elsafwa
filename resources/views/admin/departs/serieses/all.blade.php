@@ -63,6 +63,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>لينك الحلقه</th>
+                                            <th>اسم الحلقه</th>
                                             <th>القسم</th>
                                             <th>اجرائات</th>
                                         </tr>
@@ -91,6 +92,7 @@
                 columns: [
                     { data: 'DT_Row_Index', name: 'DT_Row_Index' },
                     { data: 'url', name: 'url' },
+                    { data: 'upload_url', name: 'upload_url' },
                     { data: 'depart', name: 'depart' },
                     {data: 'action', name: 'action', orderable: false, searchable: false}
                 ]
